@@ -6,11 +6,13 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "jquery": "~1.11.1",
     "angular": "~1.4.0",
     "angular-cookies": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-ui-router": "0.2.15",
+    "angular-ui-sortable": "0.13.4",
     "html5-boilerplate": "~5.2.0"
   }
 }

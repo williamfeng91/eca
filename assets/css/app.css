@@ -1,0 +1,49 @@
+body {
+    margin-top: 90px; /* 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+    font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #f9f9fb;
+}
+
+ul li {
+    list-style: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+div.main {
+    min-height: 550px;
+}
+
+.status-blue{
+    background:#2e8ec1;
+}
+.status-yellow{
+    background:#f4c712;
+}
+.status-green{
+    background:#00a553;
+}
+.status-orange{
+    background:#f88639;
+}
+.status-pink{
+    background:#f36;
+}
+.status-red{
+    background:#f43434;
+}
+.status-aqua{
+    background:#4fcde0;
+}
+.status-purple{
+    background:#9854d8;
+}
+.status-grey{
+    background:#aaa;
+}
+.status-brown{
+    background:#be8972;
+}

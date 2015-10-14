@@ -11,9 +11,12 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Normalise -->
+    <link href="assets/css/normalize.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/app.css" rel="stylesheet">
     <link href="app/components/header/search.css" rel="stylesheet">
+    <link href="app/components/list/list.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,10 +26,10 @@
 </head>
 
 <body>
-    <ar-content ng-controller="AppController as app">
+    <eca-content ng-controller="AppController as app">
       <div ui-view="header"></div>
       <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" class="main"></div>
-    </ar-content>
+    </eca-content>
 
     <!-- jQuery -->
     <script src="assets/js/jquery.js"></script>
@@ -38,6 +41,10 @@
     <script src="assets/libs/angular/angular.js"></script>
     <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
     <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/libs/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/libs/angular-ui-sortable/sortable.js"></script>
 
     <!-- ECA app -->
     <script src="app/app.module.js"></script>

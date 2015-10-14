@@ -5,6 +5,7 @@
         .module('app', [
             'ui.router',
             'ngCookies',
+            'ui.sortable',
             'app.header',
             'app.error',
             'app.list',
