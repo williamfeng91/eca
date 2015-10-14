@@ -1,0 +1,10 @@
+<div class="col-sm-3 col-md-3">
+    <form class="navbar-form navbar-left" ng-submit="searchCtrl.searchSubmit()" role="search">
+      <div class="input-group">
+        <input type="text" class="span6 form-control" placeholder="Search" ng-model="searchCtrl.query" required>
+        <div class="input-group-btn">
+            <button type="submit" ng-disabled="search.$invalid || searchCtrl.dataLoading" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button>
+        </div>
+      </div>
+    </form>
+</div>

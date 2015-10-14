@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Education Consultant Assistant">
+    <meta name="author" content="williamf">
+    <title>ECA</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="app/components/header/search.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <ar-content ng-controller="AppController as app">
+      <div ui-view="header"></div>
+      <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" class="main"></div>
+    </ar-content>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- ECA app -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
+
+    <!-- header -->
+    <script src="app/components/header/header.module.js"></script>
+    <script src="app/components/header/header.js"></script>
+    <script src="app/components/header/search.directive.js"></script>
+
+    <!-- error -->
+    <script src="app/components/error/error.module.js"></script>
+    <script src="app/components/error/error.js"></script>
+
+    <!-- list -->
+    <script src="app/components/list/list.module.js"></script>
+    <script src="app/components/list/list.js"></script>
+
+    <!-- workflow -->
+    <script src="app/components/workflow/workflow.module.js"></script>
+    <script src="app/components/workflow/workflow.js"></script>
+
+</body>
+
+</html>
