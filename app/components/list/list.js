@@ -6,15 +6,15 @@
         .controller('ListController', ListController);
 
     /** @ngInject */
-    function ListController(customerService) {
+    function ListController(customerService, session) {
         var vm = this;
-        vm.customers = [];
         customerService.getAll().then(
             function(result) {
-                vm.customers = result.entries;
-                vm.customers.sort(function(a, b) {
+                result.entries.sort(function(a, b) {
                     return a.list_pos > b.list_pos;
                 });
+                session.setCustomers(result.entries);
+                vm.customers = session.getFilteredCustomers();
             },
             function(error) {
             }
@@ -36,8 +36,8 @@
             if (vm.selectedCustomers.length == vm.customers.length) {
                 selectAll = false;
             }
-            for (var i = 0; i < vm.customers.length; ++i) {
-                vm.customers[i].selected = selectAll;
+            for (var index in vm.customers) {
+                vm.customers[index].selected = selectAll;
             }
             if (selectAll) {
                 vm.selectedCustomers = angular.copy(vm.customers);
