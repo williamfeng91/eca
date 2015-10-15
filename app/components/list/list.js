@@ -6,15 +6,19 @@
         .controller('ListController', ListController);
 
     /** @ngInject */
-    function ListController(customerService, session) {
+    function ListController(customerService, session, logger) {
         var vm = this;
         customerService.getAll().then(
             function(result) {
-                result.entries.sort(function(a, b) {
-                    return a.list_pos > b.list_pos;
-                });
                 session.setCustomers(result.entries);
                 vm.customers = session.getFilteredCustomers();
+                // Although orderBy is used in html to display cards in the order
+                // of list_pos, we still need to sort the array when it's first
+                // loaded so that the drag-n-drop can work properly for the first
+                // move
+                vm.customers.sort(function(a, b) {
+                    return a.list_pos > b.list_pos;
+                });
             },
             function(error) {
             }
@@ -23,24 +27,26 @@
 
         vm.onTopCheckboxClicked = onTopCheckboxClicked;
         vm.onSingleCheckboxClicked = onSingleCheckboxClicked;
+        vm.allChecked = allChecked;
         vm.sortableOptions = {
             stop: function(e, ui) {
                 for (var index in vm.customers) {
                     vm.customers[index].list_pos = index;
                 }
+                // TODO: call API to update
             }
         };
 
         function onTopCheckboxClicked() {
             var selectAll = true;
-            if (vm.selectedCustomers.length == vm.customers.length) {
+            if (vm.allChecked()) {
                 selectAll = false;
             }
             for (var index in vm.customers) {
                 vm.customers[index].selected = selectAll;
             }
             if (selectAll) {
-                vm.selectedCustomers = angular.copy(vm.customers);
+                vm.selectedCustomers = vm.customers.slice();
             } else {
                 vm.selectedCustomers = [];
             }
@@ -63,6 +69,15 @@
                     break;
                 }
             }
+        }
+
+        function allChecked() {
+            for (var index in vm.customers) {
+                if (!vm.customers[index].selected) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 

@@ -1,0 +1,257 @@
+<div class="panel">
+    <div class="panel-wrapper">
+        <a class="fa fa-close fa-lg panel-close-button" href=""></a>
+        <div class="card-detail-panel u-clearfix">
+            <!-- <div class="panel-cover hide js-card-cover-box js-open-card-cover-in-viewer">
+                <div class="panel-cover-stickers js-display-stickers"></div>
+            </div> -->
+            <!-- <div class="panel-archive-banner hide js-archive-banner">
+                <span class="icon-lg icon-archive panel-archive-banner-icon"></span>
+                <p class="panel-archive-banner-text">This card is archived.</p>
+            </div> -->
+            <div class="panel-header u-clearfix">
+                <span class="panel-header-icon icon-lg icon-card"></span>
+                <div class="panel-title card-detail-title non-empty u-inline editable" attr="name">
+                    <h2 class="panel-title-text current hide-on-edit js-card-title">{{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}}</h2>
+                    <!-- <p class="edits-warning quiet">You have unsaved edits on this field. <a class="js-view-edits" href="#">View edits</a> - <a class="js-discard-edits" href="#">Discard</a></p>
+                    <div class="edit edit-heavy">
+                        <textarea class="field single-line" type="text"></textarea>
+                    </div> -->
+                </div>
+            </div>
+            <div class="panel-main-col u-clearfix">
+                <div class="card-detail-data u-gutter u-clearfix">
+                    <!-- <div class="card-detail-item u-clearfix js-card-detail-members">
+                        <h3 class="card-detail-item-header">Members</h3>
+                        <div class="js-card-detail-members-list">
+                            <div class="member js-member-on-card-menu" data-idmem="55f376f281aef10390df3b13">
+                                <span class="member-initials" title="William Feng (williamfeng3)">WF</span>
+                                <span class="member-gold-badge" title="This member has Trello Gold."></span>
+                            </div>
+                            <a class="card-detail-item-add-button dark-hover js-details-edit-members">
+                                <span class="icon-sm icon-add"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-detail-item card-detail-item-labels u-clearfix hide js-card-detail-labels">
+                        <h3 class="card-detail-item-header">Labels</h3>
+                        <div class="u-clearfix js-card-detail-labels-list editable-labels js-edit-label">
+                            <a class="card-detail-item-add-button dark-hover js-details-edit-labels">
+                                <span class="icon-sm icon-add"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-detail-item hide js-card-detail-due-date">
+                        <h3 class="card-detail-item-header">Due Date</h3>
+                        <a class="card-detail-badge js-card-detail-due-date-badge" href="#"></a>
+                    </div>
+                    <div class="card-detail-item hide js-card-detail-votes">
+                        <h3 class="card-detail-item-header">Votes</h3>
+                        <a class="card-detail-badge is-clickable js-card-detail-votes-badge js-show-votes" href="#"></a>
+                    </div>
+                    <div class="card-detail-item hide js-card-detail-age">
+                        <h3 class="card-detail-item-header">Last Updated</h3>
+                        <div class="card-detail-badge date js-card-detail-age-badge"></div>
+                    </div>
+                    <div class="card-detail-item card-detail-item-block u-clearfix editable" attr="desc">
+                        <h3 class="card-detail-item-header hide js-show-with-desc">Description</h3>
+                        <a class="card-detail-item-header-edit hide-on-edit js-show-with-desc js-edit-desc hide" href="#">Edit</a>
+                        <div class="current markeddown hide-on-edit js-card-desc js-show-with-desc hide"></div>
+                        <p class="u-bottom">
+                            <a class="quiet-button mod-with-image hide-on-edit js-edit-desc js-hide-with-desc" href="#">
+                                <span class="icon-sm icon-description quiet-button-icon"></span> Edit the description…
+                            </a>
+                        </p>
+                        <div class="card-detail-edit edit">
+                            <a class="helper js-format-help" href="#">Formatting help</a>
+                            <textarea class="field"></textarea>
+                        </div>
+                        <p class="edits-warning quiet">You have unsaved edits on this field. <a class="js-view-edits" href="#">View edits</a> - <a class="js-discard-edits" href="#">Discard</a></p>
+                        <p class="edits-error error">Edit not saved.</p>
+                    </div> -->
+                </div>
+                <!-- <div class="panel-module js-attachments-section u-clearfix hide">
+                    <div class="panel-module-title panel-module-title-no-divider">
+                        <span class="panel-module-title-icon icon-lg icon-attachment"></span>
+                        <h3 class="u-inline-block">Attachments</h3>
+                    </div>
+                    <div class="u-gutter">
+                        <div class="u-clearfix js-attachment-list"></div>
+                        <p class="js-show-fewer-attachments hide">
+                            <a class="quiet-button js-view-some-attachments" href="#">Show fewer attachments.</a>
+                        </p>
+                        <p class="js-show-more-attachments hide">
+                            <a class="quiet-button js-view-all-attachments" href="#">View all attachments (-4 hidden)</a>
+                        </p>
+                        <p><a class="quiet-button js-attach" href="#">Add an attachment…</a></p>
+                    </div>
+                </div> -->
+                <div class="checklist-list panel-module js-checklist-list js-no-higher-edits ui-sortable">
+                    <div class="checklist">
+                        <div class="panel-module-title panel-module-title-no-divider u-clearfix ed grab">
+                            <span class="panel-module-title-icon icon-lg icon-checklist"></span>
+                            <div class="editable non-empty checklist-title" attr="name">
+                                <h3 class="current hide-on-edit">Checklist</h3>
+                                <!-- <div class="panel-module-title-options">
+                                    <a class="hide hide-on-edit quiet js-show-checked-items" href="#" style="margin: 0 8px;">Show checked items (0)</a>
+                                    <a class="hide hide-on-edit quiet js-hide-checked-items" href="#" style="margin: 0 8px;">Hide completed items</a>
+                                    <a class="hide-on-edit quiet js-confirm-delete" href="#">Delete…</a>
+                                </div>
+                                <div class="edit edit-heavy">
+                                    <textarea class="field full single-line"></textarea>
+                                </div>
+                                <p class="edits-warning quiet">You have unsaved edits on this field. <a class="js-view-edits" href="#">View edits</a> - <a class="js-discard-edits" href="#">Discard</a></p> -->
+                            </div>
+                        </div>
+                        <div class="checklist-progress">
+                            <span class="checklist-progress-percentage js-checklist-progress-percent">0%</span>
+                            <div class="checklist-progress-bar">
+                                <div class="checklist-progress-bar-current js-checklist-progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <!-- <span class="checklist-completed-text hide quiet js-completed-message">Everything in this checklist is complete!</span> -->
+                        </div>
+                        <div class="checklist-items-list js-checklist-items-list js-no-higher-edits ui-sortable">
+                            <div class="checklist-item">
+                                <div class="checklist-item-checkbox enabled js-toggle-checklist-item">
+                                    <span class="icon-sm icon-check checklist-item-checkbox-check"></span>
+                                </div>
+                                <div class="checklist-item-details non-empty editable" attr="name">
+                                    <p class="checklist-item-details-text current hide-on-edit markeddown js-checkitem-name">Filter by user type</p>
+                                    <!-- <div class="edit delete convert options-menu">
+                                        <textarea class="field full single-line js-checkitem-input" type="text"></textarea>
+                                    </div>
+                                    <p class="edits-warning quiet">You have unsaved edits on this field. <a class="js-view-edits" href="#">View edits</a> - <a class="js-discard-edits" href="#">Discard</a></p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checklist-new-item u-gutter js-new-checklist-item">
+                            <textarea class="checklist-new-item-text js-new-checklist-item-input" placeholder="Add an item…" style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea>
+                            <!-- <div class="add-controls u-clearfix">
+                                <input class="primary confirm js-add-checklist-item" type="submit" value="Add">
+                                <a class="icon-lg icon-close dark-hover cancel js-cancel-checklist-item" href="#"></a>
+                                <a class="option options-menu dark-hover js-open-editing-menu" href="#"><span class="icon-lg icon-dropdown-menu"></span></a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="panel-module">
+                    <div class="panel-module-title panel-module-title-no-divider">
+                        <span class="panel-module-title-icon icon-lg icon-activity"></span>
+                        <h3>Activity</h3>
+                        <div class="panel-module-title-options">
+                            <a class="quiet js-show-extra-actions hide" href="#">Show details</a>
+                            <a class="quiet js-hide-extra-actions hide" href="#">Hide details</a>
+                        </div>
+                        <span class="editing-members js-editing-members hide"></span>
+                    </div>
+                    <div class="new-comment js-new-comment">
+                        <div class="member member-no-menu">
+                            <span class="member-initials" title="William Feng (williamfeng3)">WF</span>
+                            <span class="member-gold-badge" title="This member has Trello Gold."></span>
+                        </div>
+                        <form>
+                            <div class="comment-frame">
+                                <div class="comment-box">
+                                    <textarea class="comment-box-input js-new-comment-input" placeholder="Write a comment…" tabindex="1" style="overflow: hidden; word-wrap: break-word; height: 75px;"></textarea>
+                                    <div class="comment-box-options">
+                                        <a class="comment-box-options-item js-comment-add-attachment" href="#" title="Add an attachment…">
+                                            <span class="icon-sm icon-attachment"></span>
+                                        </a>
+                                        <a class="comment-box-options-item js-comment-mention-member" href="#" title="Mention a member…">
+                                            <span class="icon-sm icon-mention"></span>
+                                        </a>
+                                        <a class="comment-box-options-item js-comment-add-emoji" href="#" title="Add emoji…">
+                                            <span class="icon-sm icon-emoji"></span>
+                                        </a>
+                                        <a class="comment-box-options-item js-comment-add-card" href="#" title="Add card…">
+                                            <span class="icon-sm icon-card"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-controls u-clearfix">
+                                <input class="primary confirm js-add-comment" type="submit" value="Comment" tabindex="3">
+                            </div>
+                        </form>
+                        <div class="comment-too-long-warning">
+                            <p>Your comment is too long! You can add it as a text attachment or truncate it.</p>
+                            <input class="primary js-attach-comment" type="submit" value="Add as an Attachment">
+                            <input class="js-truncate-comment" type="submit" value="Truncate">
+                        </div>
+                    </div>
+                    <div class="js-list-actions">
+                        <div class="phenom phenom-action u-clearfix phenom-other">
+                            <div class="creator member js-show-mem-menu">
+                                <span class="member-initials" title="William Feng (williamfeng3)">WF</span>
+                                <span class="member-gold-badge" title="This member has Trello Gold."></span>
+                            </div>
+                            <div class="phenom-desc">
+                                <span class="inline-member js-show-mem-menu" idmember="55f376f281aef10390df3b13">
+                                    <span class="u-font-weight-bold">William Feng</span>
+                                </span> joined this card
+                            </div>
+                            <p class="phenom-meta quiet">
+                                <span class="date js-hide-on-sending" dt="2015-09-26T03:58:55.640Z" title="September 26, 2015 1:58 PM">Sep 26 at 1:58 PM</span>
+                                <span class="js-spinner hide">
+                                    <span class="spinner spinner--inline mod-left small"></span> Sending…
+                                </span>
+                                <span class="js-hide-on-sending"></span>
+                            </p>
+                        </div>
+                        <div class="phenom phenom-action u-clearfix phenom-move-from-list-to-list">
+                            <div class="creator member js-show-mem-menu">
+                                <span class="member-initials" title="William Feng (williamfeng3)">WF</span>
+                                <span class="member-gold-badge" title="This member has Trello Gold."></span>
+                            </div>
+                            <div class="phenom-desc">
+                                <span class="inline-member js-show-mem-menu" idmember="55f376f281aef10390df3b13">
+                                    <span class="u-font-weight-bold">William Feng</span>
+                                </span> moved this card from Testing to Doing
+                            </div>
+                            <p class="phenom-meta quiet">
+                                <span class="date js-hide-on-sending" dt="2015-09-26T01:26:04.486Z" title="September 26, 2015 11:26 AM">Sep 26 at 11:26 AM</span>
+                                <span class="js-spinner hide">
+                                    <span class="spinner spinner--inline mod-left small"></span> Sending…
+                                </span>
+                                <span class="js-hide-on-sending"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="spinner loading js-loading-card-actions" style="display: none;"></div>
+                    <p class="u-bottom">
+                        <a class="show-more js-show-all-actions" href="#">Show all actions…</a>
+                    </p>
+                </div> -->
+            </div>
+            <div class="panel-sidebar" style="position: relative;">
+                <div class="panel-module u-clearfix">
+                    <h3>Add</h3>
+                    <div class="u-clearfix">
+                        <!-- <a class="button-link js-change-card-members" href="#"><span class="icon-sm icon-member"></span> Members</a> -->
+                        <a class="button-link js-edit-labels" href="#"><span class="icon-sm icon-label"></span> Sticker</a>
+                        <a class="button-link js-add-checklist-menu" href="#"><span class="icon-sm icon-checklist"></span> Checklist</a>
+                        <a class="button-link js-add-due-date" href="#"><span class="icon-sm icon-clock"></span> Event</a>
+                        <a class="button-link js-attach" href="#"><span class="icon-sm icon-attachment"></span> Attachment</a>
+                    </div>
+                </div>
+                <div class="panel-module other-actions u-clearfix">
+                    <h3>Actions</h3>
+                    <div class="u-clearfix">
+                        <a class="button-link js-move-card" href="#"><span class="icon-sm icon-move"></span> Move</a>
+                        <a class="button-link js-copy-card" href="#"><span class="icon-sm icon-card"></span> Copy</a>
+                        <hr>
+                        <a class="button-link js-archive-card" href="#"><span class="icon-sm icon-archive"></span> Archive</a>
+                        <!-- <a class="button-link js-unarchive-card hide" href="#"><span class="icon-sm icon-refresh"></span> Handover to</a> -->
+                        <a class="button-link negate hide js-delete-card" href="#"><span class="icon-sm icon-remove"></span> Delete</a>
+                    </div>
+                </div>
+                <!-- <div class="panel-module u-clearfix">
+                    <p class="quiet u-bottom">
+                        <a class="quiet-button js-more-menu" href="#">Share and more…</a>
+                    </p>
+                </div> -->
+            </div>
+            <!-- <p class="dropzone">Drop files to upload.</p> -->
+        </div>
+    </div>
+</div>

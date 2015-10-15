@@ -12,7 +12,9 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-ui-router": "0.2.15",
+    "angular-bootstrap": "0.13.3",
     "angular-ui-sortable": "0.13.4",
+    "ui-router-extras": "0.1.0",
     "html5-boilerplate": "~5.2.0"
   }
 }

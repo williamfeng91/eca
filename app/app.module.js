@@ -5,12 +5,15 @@
         .module('app', [
             'ui.router',
             'ngCookies',
+            'ui.bootstrap',
             'ui.sortable',
+            'ct.ui.router.extras',
             'app.services',
             'app.header',
             'app.error',
             'app.list',
             'app.workflow',
+            'app.customerDetails'
         ])
         .run(run);
 

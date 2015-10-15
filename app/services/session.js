@@ -16,7 +16,7 @@
 
         this.setCustomers = function(customers) {
             angular.copy(customers, this.customers);
-            angular.copy(customers, this.filteredCustomers);
+            this.filteredCustomers = this.customers.slice();
         };
 
         this.getFilteredCustomers = function() {
@@ -24,7 +24,10 @@
         }
 
         this.setFilteredCustomers = function(customers) {
-            angular.copy(customers, this.filteredCustomers);
+            this.filteredCustomers.length = 0;
+            for (var index in customers) {
+                this.filteredCustomers.push(customers[index]);
+            }
         };
     }
 }());

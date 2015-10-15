@@ -2,7 +2,10 @@
 $(document).ready(function() {
     $(document).keydown(function(e) {
         var charCode = (e.which) ? e.which : e.keyCode;
-        if (charCode >= 48 && charCode <= 90 && !$("#searchBar").is(":focus")) {
+        if (charCode >= 48 && charCode <= 90
+                && !$("#searchBar").is(":focus")
+                && !$("input").is(":focus")
+                && !$("textarea").is(":focus")) {
             $("#searchBar").focus();
         }
     });

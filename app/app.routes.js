@@ -53,10 +53,37 @@
             .state('list', {
                 url: '/list',
                 views: getUICompObj('list'),
+                sticky: true
             })
             .state('workflow', {
                 url: '/workflow',
                 views: getUICompObj('workflow'),
+            })
+            .state('customer-details', {
+                url: '/customers/{id}',
+                onEnter: function($q, $state, $stateParams, $modal, customerService) {
+                    $modal.open({
+                        templateUrl: 'app/components/customer-details/customer-details.html',
+                        resolve: {
+                            initData: function() {
+                                return customerService.getById($stateParams.id)
+                                    .then(getCustomerSuccessful, getCustomerFailed);
+
+                                function getCustomerSuccessful(result) {
+                                    return $q.resolve(result);
+                                }
+
+                                function getCustomerFailed(error) {
+                                    return $q.reject(error);
+                                }
+                            }
+                        },
+                        controller: 'CustomerDetailsController',
+                        controllerAs: 'customerDetailsCtrl'
+                    }).result.finally(function() {
+                        $state.go('list');
+                    });
+                }
             })
             .state('error', {
                 url: '/error',

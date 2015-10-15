@@ -17,6 +17,7 @@
     <link href="assets/css/app.css" rel="stylesheet">
     <link href="app/components/header/search.css" rel="stylesheet">
     <link href="app/components/list/list.css" rel="stylesheet">
+    <link href="app/components/customer-details/customer-details.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,7 +29,7 @@
 <body>
     <eca-content ng-controller="AppController as app">
       <div ui-view="header"></div>
-      <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" class="main"></div>
+      <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" id="main" class="main"></div>
     </eca-content>
 
     <!-- jQuery -->
@@ -41,6 +42,8 @@
     <script src="assets/libs/angular/angular.js"></script>
     <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
     <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="assets/libs/ui-router-extras/release/ct-ui-router-extras.js"></script>
 
     <!-- Plugins -->
     <script src="assets/libs/jquery-ui/jquery-ui.js"></script>
@@ -73,6 +76,10 @@
     <!-- workflow -->
     <script src="app/components/workflow/workflow.module.js"></script>
     <script src="app/components/workflow/workflow.js"></script>
+
+    <!-- customer details -->
+    <script src="app/components/customer-details/customer-details.module.js"></script>
+    <script src="app/components/customer-details/customer-details.js"></script>
 
 </body>
 

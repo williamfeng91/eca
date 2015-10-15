@@ -4,7 +4,7 @@
         <div class="fixed-wrapper">
             <div class="bulk-actions">
                 <div class="checker">
-                    <span ng-class="{'checked': listCtrl.selectedCustomers.length == listCtrl.customers.length}" ng-click="listCtrl.onTopCheckboxClicked()"><input type="checkbox"></span>
+                    <span ng-class="{'checked': listCtrl.allChecked()}" ng-click="listCtrl.onTopCheckboxClicked()"><input type="checkbox"></span>
                 </div>
                 <ul class="bulk-options">
                     <li class="share"><a><i class="fa fa-share fa-lg"></i></a></li>
@@ -41,7 +41,7 @@
         <div class="customers-grid list">
             <div class="customers-group list">
             <ul ui-sortable="listCtrl.sortableOptions" ng-model="listCtrl.customers">
-                <li ng-repeat="customer in listCtrl.customers" ng-class="{'selected': customer.selected}" class="customer other-customers-selected list -large">
+                <li ng-repeat="customer in listCtrl.customers | orderBy:'-list_pos':true" ng-class="{'selected': customer.selected}" class="customer other-customers-selected list -large">
                     <div class="customer-wrap">
                         <div class="image">
                             <div ng-class="{'status-{{customer.status.color}}':customer.status}" class="image-inner" alt=""></div>
@@ -66,7 +66,7 @@
                                 <li class="delete"><a draggable="false">Delete</a></li>
                             </ul> -->
                             <div class="view-customer-wrap">
-                                <a title="" draggable="false" href="">
+                                <a ui-sref="customer-details({id:customer.id})" title="" draggable="false" href="">
                                     <span class="view-customer-button" data-original-text="View Customer">View Customer</span>
                                 </a>
                             </div>
@@ -90,7 +90,6 @@
                             </div>
                         </div>
                     </div>
-                    <a class="" draggable="false"></a>
                 </li>
             </ul>
         </div>
