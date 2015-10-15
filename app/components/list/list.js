@@ -5,46 +5,46 @@
         .module('app.list')
         .controller('ListController', ListController);
 
-    function ListController() {
+    /** @ngInject */
+    function ListController(customerService) {
         var vm = this;
-        vm.customers = [
-            {
-                id: 1,
-                given_name: 'William',
-                surname: 'Feng',
-                chinese_name: '冯云超',
-                mobile: '12345678',
-                email: 'A@hotmail.com',
-                status: {
-                    color: 'blue'
-                }
+        vm.customers = [];
+        customerService.getAll().then(
+            function(result) {
+                vm.customers = result.entries;
+                vm.customers.sort(function(a, b) {
+                    return a.list_pos > b.list_pos;
+                });
             },
-            {
-                id: 2,
-                given_name: 'Mandy',
-                surname: 'Li',
-                chinese_name: '李曼',
-                mobile: '12451245124',
-                email: 'B@hotmail.com',
-                status: {
-                    color: 'orange'
-                }
-            },
-            {
-                id: 3,
-                given_name: 'C',
-                surname: 'Zhao',
-                chinese_name: '赵C',
-                mobile: '92837492379',
-                email: 'C@hotmail.com',
-                status: {
-                    color: 'red'
-                }
+            function(error) {
             }
-        ];
+        )
         vm.selectedCustomers = [];
 
+        vm.onTopCheckboxClicked = onTopCheckboxClicked;
         vm.onSingleCheckboxClicked = onSingleCheckboxClicked;
+        vm.sortableOptions = {
+            stop: function(e, ui) {
+                for (var index in vm.customers) {
+                    vm.customers[index].list_pos = index;
+                }
+            }
+        };
+
+        function onTopCheckboxClicked() {
+            var selectAll = true;
+            if (vm.selectedCustomers.length == vm.customers.length) {
+                selectAll = false;
+            }
+            for (var i = 0; i < vm.customers.length; ++i) {
+                vm.customers[i].selected = selectAll;
+            }
+            if (selectAll) {
+                vm.selectedCustomers = angular.copy(vm.customers);
+            } else {
+                vm.selectedCustomers = [];
+            }
+        }
 
         function onSingleCheckboxClicked(id) {
             for (var i = 0; i < vm.customers.length; ++i) {

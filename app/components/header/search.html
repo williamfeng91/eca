@@ -1,7 +1,8 @@
 <script>
 $(document).ready(function() {
     $(document).keydown(function(e) {
-        if (!$("#searchBar").is(":focus")) {
+        var charCode = (e.which) ? e.which : e.keyCode;
+        if (charCode >= 48 && charCode <= 90 && !$("#searchBar").is(":focus")) {
             $("#searchBar").focus();
         }
     });

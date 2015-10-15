@@ -6,6 +6,7 @@
             'ui.router',
             'ngCookies',
             'ui.sortable',
+            'app.services',
             'app.header',
             'app.error',
             'app.list',
