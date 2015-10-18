@@ -14,10 +14,13 @@
     <!-- Normalise -->
     <link href="assets/css/normalize.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="assets/libs/angular-loading-bar/build/loading-bar.css" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
     <link href="app/components/header/search.css" rel="stylesheet">
     <link href="app/components/list/list.css" rel="stylesheet">
     <link href="app/components/customer-details/customer-details.css" rel="stylesheet">
+    <link href="app/components/loader/loader.css" rel="stylesheet">
+    <link href="app/directives/editable/editable.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,22 +31,27 @@
 
 <body>
     <eca-content ng-controller="AppController as app">
-      <div ui-view="header"></div>
-      <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" id="main" class="main"></div>
+        <div ui-view="header"></div>
+        <div ui-view="main" ng-if="!stateIsLoading" autoscroll="true" id="main" class="main"></div>
+        <eca-loader ng-if="stateIsLoading"></eca-loader>
     </eca-content>
 
     <!-- jQuery -->
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/libs/autosize/dist/autosize.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <!--<script src="assets/js/bootstrap.min.js"></script>-->
+    <!--<script src="assets/js/custom.js"></script>-->
 
     <!-- AngularJS -->
     <script src="assets/libs/angular/angular.js"></script>
     <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.js"></script>
     <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="assets/libs/ui-router-extras/release/ct-ui-router-extras.js"></script>
+    <script src="assets/libs/angular-loading-bar/build/loading-bar.js"></script>
 
     <!-- Plugins -->
     <script src="assets/libs/jquery-ui/jquery-ui.js"></script>
@@ -52,6 +60,7 @@
     <!-- ECA app -->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+    <script src="app/app.config.js"></script>
     <script src="app/shared/constants.js"></script>
 
     <!-- services -->
@@ -59,6 +68,7 @@
     <script src="app/services/session.js"></script>
     <script src="app/services/customer-service.js"></script>
     <script src="app/services/logger-service.js"></script>
+    <script src="app/services/setting-service.js"></script>
 
     <!-- header -->
     <script src="app/components/header/header.module.js"></script>
@@ -80,6 +90,15 @@
     <!-- customer details -->
     <script src="app/components/customer-details/customer-details.module.js"></script>
     <script src="app/components/customer-details/customer-details.js"></script>
+    <script src="app/components/personal-details/personal-details.directive.js"></script>
+    <script src="app/components/checklist-list/checklist-list.directive.js"></script>
+
+    <!-- loader -->
+    <script src="app/components/loader/loader.directive.js"></script>
+
+    <!-- other directives -->
+    <script src="app/directives/editable/editable.directive.js"></script>
+    <script src="app/directives/elastic/elastic.directive.js"></script>
 
 </body>
 

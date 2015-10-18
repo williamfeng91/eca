@@ -1,0 +1,53 @@
+<accordion-group is-open="checklistListCtrl.collapseStatus.checklist" class="customer-panel-module">
+    <accordion-heading>
+        <i class="fa fa-check-square-o fa-lg"></i> Checklists <i class="pull-right fa" ng-class="{'fa-angle-down': checklistListCtrl.collapseStatus.checklist, 'fa-angle-right': !checklistListCtrl.collapseStatus.checklist}"></i>
+    </accordion-heading>
+    <div ng-repeat="checklist in customerDetailsCtrl.customer.checklists" class="checklist-list ui-sortable">
+        <div class="checklist">
+            <div ng-click="editting = !editting" class="customer-panel-module-title editable">
+                <h4 class="hide-on-edit editable-text">{{checklist.name}}</h4>
+                <div class="customer-panel-module-title-options">
+                    <!-- <a class="hide hide-on-edit" href="" style="margin: 0 8px;">Show checked items (0)</a>
+                    <a class="hide hide-on-edit" href="" style="margin: 0 8px;">Hide completed items</a> -->
+                    <a class="hide-on-edit" href="#">Delete checklist</a>
+                </div>
+                <!--<div class="edit edit-heavy">
+                    <textarea class="field full single-line"></textarea>
+                </div>
+                <p class="edits-warning quiet">You have unsaved edits on this field. <a class="js-view-edits" href="#">View edits</a> - <a class="js-discard-edits" href="#">Discard</a></p> -->
+            </div>
+            <div class="checklist-progress">
+                <small><em>{{checklist.numChecked}} / {{checklist.items.length}}</em></small>
+                <progressbar ng-class="{'checklist-all-complete': checklist.numChecked == checklist.items.length}" max="checklist.items.length" value="checklist.numChecked"></progressbar>
+            </div>
+            <div ng-repeat="item in checklist.items" class="checklist-items-list ui-sortable">
+                <div ng-class="{'checklist-item-completed': item.checked}" class="checklist-item">
+                    <span ng-click="checklistListCtrl.toggleCheck(checklist, item)" class="checklist-item-checkbox fa-stack fa-lg">
+                        <i class="fa fa-square-o fa-stack-1x"></i>
+                        <i ng-show="item.checked" class="fa fa-check fa-stack-1x"></i>
+                    </span>
+                    <div class="checklist-item-details editable">
+                        <p class="checklist-item-details-text hide-on-edit editable-text">{{item.text}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="checklist-new-item">
+                <div class="checklist-add-item editable" text="placeholder">
+                    <p class="checklist-add-item-text hide-on-edit editable-text">Add an item</p>
+                </div>
+                <!-- <textarea class="checklist-new-item-text js-new-checklist-item-input" placeholder="Add an item…" style="overflow: hidden; word-wrap: break-word; height: 36px;"></textarea> -->
+                <!-- <div class="add-controls u-clearfix">
+                    <input class="primary confirm js-add-checklist-item" type="submit" value="Add">
+                    <a class="icon-lg icon-close dark-hover cancel js-cancel-checklist-item" href="#"></a>
+                    <a class="option options-menu dark-hover js-open-editing-menu" href="#"><span class="icon-lg icon-dropdown-menu"></span></a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="customer-panel-module">
+        <div class="spinner loading js-loading-card-actions" style="display: none;"></div>
+        <p class="u-bottom">
+            <a class="show-more js-show-all-actions" href="#">Show all actions…</a>
+        </p>
+    </div> -->
+</accordion-group>

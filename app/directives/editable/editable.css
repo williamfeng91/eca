@@ -1,0 +1,27 @@
+.editable-text {
+    cursor: pointer;
+}
+
+.edit {
+    margin-bottom: 1em;
+}
+
+.edit textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.edit .btn {
+    padding: 4px 15px;
+}
+
+.edit .btn-default {
+    padding: 4px 15px;
+    background-color: #18bc9c;
+    border-color: #18bc9c;
+}
+
+.edit .btn-default:hover, .edit .btn-default:focus {
+    background-color: #18bc9c;
+    border-color: #18bc9c;
+}

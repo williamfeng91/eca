@@ -52,7 +52,20 @@
         $stateProvider
             .state('list', {
                 url: '/list',
-                views: getUICompObj('list'),
+                views: getUICompObj('list', undefined, {
+                    initData: function($q, customerService) {
+                        return customerService.getAll()
+                            .then(getCustomersSuccessful, getCustomersFailed);
+
+                        function getCustomersSuccessful(result) {
+                            return $q.resolve(result);
+                        }
+
+                        function getCustomersFailed(error) {
+                            return $q.reject(error);
+                        }
+                    }
+                }),
                 sticky: true
             })
             .state('workflow', {

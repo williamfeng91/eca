@@ -6,23 +6,17 @@
         .controller('ListController', ListController);
 
     /** @ngInject */
-    function ListController(customerService, session, logger) {
+    function ListController(initData, customerService, session, logger) {
         var vm = this;
-        customerService.getAll().then(
-            function(result) {
-                session.setCustomers(result.entries);
-                vm.customers = session.getFilteredCustomers();
-                // Although orderBy is used in html to display cards in the order
-                // of list_pos, we still need to sort the array when it's first
-                // loaded so that the drag-n-drop can work properly for the first
-                // move
-                vm.customers.sort(function(a, b) {
-                    return a.list_pos > b.list_pos;
-                });
-            },
-            function(error) {
-            }
-        )
+        session.setCustomers(initData.entries);
+        vm.customers = session.getFilteredCustomers();
+        // Although orderBy is used in html to display cards in the order
+        // of list_pos, we still need to sort the array when it's first
+        // loaded so that the drag-n-drop can work properly for the first
+        // move
+        vm.customers.sort(function(a, b) {
+            return a.list_pos > b.list_pos;
+        });
         vm.selectedCustomers = [];
 
         vm.onTopCheckboxClicked = onTopCheckboxClicked;

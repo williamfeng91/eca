@@ -1,0 +1,11 @@
+<accordion-group is-open="personalDetailsCtrl.collapseStatus.personalDetails" class="customer-panel-module">
+    <accordion-heading>
+        <i class="fa fa-user fa-lg"></i> Personal Details <i class="pull-right fa" ng-class="{'fa-angle-down': personalDetailsCtrl.collapseStatus.personalDetails, 'fa-angle-right': !personalDetailsCtrl.collapseStatus.personalDetails}"></i>
+    </accordion-heading>
+    <div ng-repeat="property in customerDetailsCtrl.properties" class="row">
+        <div class="col-md-4">{{property.display}}</div>
+        <div class="editable col-md-8">
+            <span class="hide-on-edit editable-text">{{customerDetailsCtrl.customer[property.name]}}</span>
+        </div>
+    </div>
+</accordion-group>

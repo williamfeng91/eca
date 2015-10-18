@@ -13,8 +13,23 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+a:focus {
+    outline: none;
+}
+
 div.main {
     min-height: 550px;
+}
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
 
 .status-blue{
