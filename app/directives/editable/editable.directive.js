@@ -7,12 +7,19 @@
             return {
                 restrict: 'CA',
                 transclude: true,
-                scope: true,
+                scope: {
+                    onSaveCallback: '&',
+                    onDeleteCallback: '&'
+                },
                 templateUrl: 'app/directives/editable/editable.html',
                 link: function(scope, element, attrs) {
-                    scope.onSave = onSave;
-                    scope.onCancel = onCancel;
-                    scope.onDelete = onDelete;
+                    if (attrs.onSaveCallback) {
+                        scope.onSave = onSave;
+                    }
+                    if (attrs.onDeleteCallback) {
+                        scope.onDelete = onDelete;
+                    }
+                    scope.onCancel = onExitEdit;
 
                     var editableText = $(element).find('.editable-text');
                     var textArea = $(element).find('.edit textarea');
@@ -36,18 +43,21 @@
                     });
 
                     function onSave() {
-                        // TODO: call API to update
-                        onCancel();
-                    }
-
-                    function onCancel() {
-                        $(element).find('.edit').addClass('hide');
-                        $(element).find('.hide-on-edit').removeClass('hide');
+                        if (scope.text) {
+                            var callback = scope.onSaveCallback();
+                            callback(scope.text);
+                        }
+                        onExitEdit();
                     }
 
                     function onDelete() {
                         // TODO: call API to update
-                        onCancel();
+                        onExitEdit();
+                    }
+
+                    function onExitEdit() {
+                        $(element).find('.edit').addClass('hide');
+                        $(element).find('.hide-on-edit').removeClass('hide');
                     }
                 }
             };

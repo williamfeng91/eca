@@ -1,7 +1,7 @@
 <ng-transclude></ng-transclude>
 <div class="edit hide">
-    <textarea elastic rows="2" placeholder="{{placeholderText}}">{{originalText}}</textarea>
-    <button ng-click="onSave()" class="btn btn-default">Save</button>
+    <textarea ng-model="text" elastic rows="2" placeholder="{{placeholderText}}">{{originalText}}</textarea>
+    <button ng-if="onSave" ng-click="onSave()" class="btn btn-default">Save</button>
     <button ng-click="onCancel()" class="btn btn-default">Cancel</button>
-    <button ng-click="onDelete()" class="btn btn-danger pull-right">Delete</button>
+    <button ng-if="onDelete" ng-click="onDelete()" class="btn btn-danger pull-right">Delete</button>
 </div>

@@ -15,12 +15,17 @@
                     vm.checklists = $scope.customerDetailsCtrl.customer.checklists;
 
                     // functions
+                    vm.addItem = addItem;
                     vm.countCheckedItems = countCheckedItems;
                     vm.toggleCheck = toggleCheck;
 
                     // initialize check count
                     for (var index in vm.checklists) {
                         vm.checklists[index].numChecked = countCheckedItems(vm.checklists[index].items);
+                    }
+
+                    function addItem(text) {
+                        console.log(text);
                     }
 
                     function countCheckedItems(items) {
