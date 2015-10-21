@@ -12,16 +12,9 @@
             </div> -->
             <div class="col-md-8">
                 <div class="customer-panel-header">
-                    <div class="editable">
-                        <h3 class="customer-panel-title hide-on-edit editable-text">
-                            {{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}}
-                        </h3>
-                    </div>
-                    <div class="editable">
-                        <h5 class="customer-panel-subtitle hide-on-edit editable-text">
-                            {{customerDetailsCtrl.customer.nickname}}
-                        </h5>
-                    </div>
+                    <h3 class="customer-panel-title">
+                        {{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}} (<span class="customer-panel-subtitle">{{customerDetailsCtrl.customer.nickname}}</span>)
+                    </h3>
                 </div>
                 <accordion close-others="false">
                     <!-- <accordion-group is-open="customerDetailsCtrl.isPersonalDetailsCollapsed" class="customer-panel-module">

@@ -15,7 +15,7 @@
         // loaded so that the drag-n-drop can work properly for the first
         // move
         vm.customers.sort(function(a, b) {
-            return a.list_pos > b.list_pos;
+            return a.list_pos < b.list_pos;
         });
         vm.selectedCustomers = [];
 
@@ -25,7 +25,7 @@
         vm.sortableOptions = {
             stop: function(e, ui) {
                 for (var index in vm.customers) {
-                    vm.customers[index].list_pos = index;
+                    vm.customers[index].list_pos = vm.customers.length - index;
                 }
                 // TODO: call API to update
             }

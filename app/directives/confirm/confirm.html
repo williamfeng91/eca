@@ -1,0 +1,5 @@
+<ng-transclude ng-hide="confirming" ng-click="startConfirm()"></ng-transclude>
+<div ng-show="confirming" class="confirm-button-group">
+    <button type="button" class="btn btn-danger"  ng-click="confirm()">Confirm</button>
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

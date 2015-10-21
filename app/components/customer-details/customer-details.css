@@ -2,6 +2,10 @@
     width: 80%;
 }
 
+.modal-dialog .btn {
+    padding: 4px 15px;
+}
+
 .fade {
     transition: none;
 }
@@ -31,7 +35,7 @@
     padding: 30px 0 30px 15px;
 }
 
-.customer-panel-header.row {
+.customer-panel-header {
     margin: 0 0 20px 10px;
     padding: 0;
     z-index: 1;
@@ -71,9 +75,10 @@
     margin: 10px 0;
 }
 
-.customer-panel-module-title h4 {
+.customer-panel-module-title-text {
     display: inline-block;
     margin-top: 0;
+    font-size: 19px;
 }
 
 .customer-panel-module-title-options {
@@ -117,41 +122,4 @@
 
 .customer-panel-button-bottom-left {
     margin-top: -1px;
-}
-
-.checklist .progress {
-    height: 10px;
-    margin-bottom: 1em;
-}
-
-.checklist .progress-bar {
-    /*background-color: #18bc9c;*/
-    font-size: 12px;
-    line-height: 20px;
-}
-
-.checklist .checklist-all-complete .progress-bar {
-    background-color: #18bc9c;
-}
-
-.checklist-item-checkbox {
-    line-height: 1.2em;
-    height: 1.2em;
-    width: 1.2em;
-    float: left;
-    cursor: pointer;
-}
-
-.checklist-item-checkbox i {
-    /*color: #18bc9c;*/
-}
-
-.checklist-item-details-text {
-    padding-left: 1.5em;
-}
-
-.checklist-item-completed .checklist-item-details-text {
-    color: #8c8c8c;
-    font-style: italic;
-    text-decoration: line-through;
 }

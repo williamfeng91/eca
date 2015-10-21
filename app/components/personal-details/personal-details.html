@@ -4,8 +4,32 @@
     </accordion-heading>
     <div ng-repeat="property in customerDetailsCtrl.properties" class="row">
         <div class="col-md-4">{{property.display}}</div>
-        <div class="editable col-md-8">
-            <span class="hide-on-edit editable-text">{{customerDetailsCtrl.customer[property.name]}}</span>
+        <div ng-switch on="property.type">
+            <div ng-switch-when="enum">
+                <div editable editable-radio="customerDetailsCtrl.customer[property.name]"
+                        radio-values="personalDetailsCtrl.genders"
+                        on-save-callback="personalDetailsCtrl.updateProperty"
+                        on-save-callback-args="property"
+                        class="col-md-8">
+                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                </div>
+            </div>
+            <div ng-switch-when="date">
+                <div editable editable-date="customerDetailsCtrl.customer[property.name]"
+                    on-save-callback="personalDetailsCtrl.updateProperty"
+                    on-save-callback-args="property"
+                    class="col-md-8">
+                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <div editable editable-text="customerDetailsCtrl.customer[property.name]"
+                        on-save-callback="personalDetailsCtrl.updateProperty"
+                        on-save-callback-args="property"
+                        class="col-md-8">
+                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </accordion-group>

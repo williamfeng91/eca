@@ -16,6 +16,7 @@
     "angular-bootstrap": "0.13.3",
     "angular-ui-sortable": "0.13.4",
     "angular-loading-bar": "latest",
+    "angular-xeditable": "0.1.8",
     "ui-router-extras": "0.1.0",
     "html5-boilerplate": "~5.2.0"
   }

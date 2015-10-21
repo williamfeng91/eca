@@ -1,7 +1,20 @@
-<ng-transclude></ng-transclude>
-<div class="edit hide">
-    <textarea ng-model="text" elastic rows="2" placeholder="{{placeholderText}}">{{originalText}}</textarea>
-    <button ng-if="onSave" ng-click="onSave()" class="btn btn-default">Save</button>
-    <button ng-click="onCancel()" class="btn btn-default">Cancel</button>
-    <button ng-if="onDelete" ng-click="onDelete()" class="btn btn-danger pull-right">Delete</button>
+<ng-transclude ng-hide="editing"></ng-transclude>
+<div ng-show="editing" class="edit">
+    <textarea ng-if="editableText" focus-on="editing" ng-model="vm.newVal" elastic rows="2" placeholder="{{placeholderText}}"></textarea>
+    <div ng-if="editableRadio" class="btn-group">
+        <label ng-repeat="radioVal in radioValues" class="btn btn-primary" ng-model="vm.newVal" btn-radio="radioVal.name">{{radioVal.display}}</label>
+    </div>
+    <p ng-if="editableDate" class="input-group">
+        <input type="text" datepicker-popup="{{dateFormat}}" ng-model="vm.newVal" is-open="showDatePicker" ng-required="true" class="form-control" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="showDatePicker = true"><i class="fa fa-calendar"></i></button>
+        </span>
+    </p>
+    <div class="row">
+        <button ng-if="save" ng-click="save()" class="btn btn-save">Save</button>
+        <button ng-click="cancel()" class="btn btn-default">Cancel</button>
+        <div ng-if="delete" confirm on-confirm-callback="delete" class="pull-right">
+            <button class="btn btn-danger action-to-confirm">Delete</button>
+        </div>
+    </div>
 </div>

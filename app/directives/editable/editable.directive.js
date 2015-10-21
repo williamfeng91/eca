@@ -5,59 +5,76 @@
         .module('app')
         .directive('editable', function() {
             return {
-                restrict: 'CA',
+                restrict: 'A',
                 transclude: true,
                 scope: {
+                    editableText: '=',
+                    placeholderText: '@',
+                    editableRadio: '=',
+                    radioValues: '=',
+                    editableDate: '=',
                     onSaveCallback: '&',
-                    onDeleteCallback: '&'
+                    onSaveCallbackArgs: '=',
+                    onDeleteCallback: '&',
+                    deleteItem: '='
                 },
                 templateUrl: 'app/directives/editable/editable.html',
                 link: function(scope, element, attrs) {
+                    scope.vm = {};
+                    scope.dateFormat = 'dd-MMMM-yyyy';
+                    scope.editing = false;
+
+                    // functions
                     if (attrs.onSaveCallback) {
-                        scope.onSave = onSave;
+                        scope.save = onSave;
                     }
                     if (attrs.onDeleteCallback) {
-                        scope.onDelete = onDelete;
+                        scope.delete = onDelete;
                     }
-                    scope.onCancel = onExitEdit;
+                    scope.cancel = exitEdit;
 
-                    var editableText = $(element).find('.editable-text');
-                    var textArea = $(element).find('.edit textarea');
-                    textArea.bind('keydown keypress', function(evt) {
-                        if (angular.equals(evt.keyCode, 13)) {
-                            evt.preventDefault();
-                            onSave();
+                    var clickableEl = element.find('.click-to-edit');
+                    var transcludeEl = element.find('ng-transclude');
+                    if (clickableEl && clickableEl.length == 1) {
+                        clickableEl.addClass('pointer');
+                        clickableEl.bind('click', startEdit);
+                    } else {
+                        transcludeEl.addClass('pointer');
+                        transcludeEl.bind('click', startEdit);
+                    }
+
+                    function startEdit() {
+                        if (scope.editableText) {
+                            scope.vm.newVal = scope.editableText;
+                        } else if (scope.editableRadio) {
+                            scope.vm.newVal = scope.editableRadio;
+                        } else if (scope.editableDate) {
+                            scope.vm.newVal = scope.editableDate;
                         }
-                    });
-                    editableText.bind('click', function() {
-                        $(element).find('.hide-on-edit').addClass('hide');
-                        if (attrs.text == 'empty') {
-                            scope.placeholderText = '';
-                        } else if (attrs.text == 'placeholder') {
-                            scope.placeholderText = editableText.html().trim();
-                        } else {
-                            scope.originalText = editableText.html().trim();
-                        }
-                        $(element).find('.edit').removeClass('hide');
-                        textArea.focus();
-                    });
+                        scope.editing = true;
+                    }
 
                     function onSave() {
-                        if (scope.text) {
-                            var callback = scope.onSaveCallback();
-                            callback(scope.text);
+                        // save when editable value has been modified and not empty
+                        if (scope.vm.newVal) {
+                            if (scope.editableText && scope.vm.newVal != scope.editableText
+                                || scope.editableRadio && scope.vm.newVal != scope.editableRadio) {
+                                scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
+                            } else if (scope.editableDate && scope.vm.newVal != scope.editableDate) {
+                                scope.onSaveCallback()(scope.vm.newVal.getTime(), scope.onSaveCallbackArgs);
+                            }
                         }
-                        onExitEdit();
+                        exitEdit();
                     }
 
                     function onDelete() {
-                        // TODO: call API to update
-                        onExitEdit();
+                        var callback = scope.onDeleteCallback();
+                        callback(scope.deleteItem);
+                        exitEdit();
                     }
 
-                    function onExitEdit() {
-                        $(element).find('.edit').addClass('hide');
-                        $(element).find('.hide-on-edit').removeClass('hide');
+                    function exitEdit() {
+                        scope.editing = false;
                     }
                 }
             };

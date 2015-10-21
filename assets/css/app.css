@@ -21,6 +21,10 @@ div.main {
     min-height: 550px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 /*
  * Row with equal height columns
  * --------------------------------------------------
