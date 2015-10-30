@@ -50,6 +50,8 @@
               scope.vm.newVal = scope.editableRadio;
             } else if (scope.editableDate) {
               scope.vm.newVal = scope.editableDate;
+            } else {
+              scope.vm.newVal = '';
             }
             scope.editing = true;
           }
@@ -57,10 +59,10 @@
           function onSave() {
             // save when editable value has been modified and not empty
             if (scope.vm.newVal) {
-              if (scope.editableText && scope.vm.newVal != scope.editableText
-                || scope.editableRadio && scope.vm.newVal != scope.editableRadio) {
-                scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
-              } else if (scope.editableDate && scope.vm.newVal != scope.editableDate) {
+              if ((scope.editableText != null && scope.vm.newVal != scope.editableText)
+                || (scope.placeholderText != null)
+                || (scope.editableRadio != null && scope.vm.newVal != scope.editableRadio)
+                || (scope.editableDate != null && scope.vm.newVal != scope.editableDate)) {
                 scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
               }
             }

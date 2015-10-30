@@ -12,7 +12,7 @@
       getById: getById,
       getAll: getAll,
       update: updateCustomer,
-      partialUpdateCustomer: partialUpdateCustomer,
+      partialUpdate: partialUpdateCustomer,
       delete: deleteCustomer
     };
 
@@ -76,14 +76,14 @@
 
     /**
      * Partially updates a customer
-     * @param customer the customer object with updated information
+     * @param patch the patch object with updated information
      */
-    function partialUpdateCustomer(customer) {
+    function partialUpdateCustomer(customerId, patch) {
       return $http({
-        url: ECA_API.customerUrl + '/' + customer.id,
+        url: ECA_API.customerUrl + '/' + customerId,
         method: 'PATCH',
         dataType: 'json',
-        data: customer,
+        data: patch,
         headers: ECA_API.headers
       }).then(handleSuccess, handleError);
     }

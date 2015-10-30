@@ -8,7 +8,7 @@
   /** @ngInject */
   function ListController(initData, customerService, session, logger) {
     var vm = this;
-    session.setCustomers(initData.entries);
+    session.setCustomers(initData);
     vm.customers = session.getFilteredCustomers();
     // Although orderBy is used in html to display cards in the order
     // of list_pos, we still need to sort the array when it's first

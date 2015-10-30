@@ -1,28 +1,32 @@
 body {
-    margin-top: 90px; /* 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
-    font-family: "News Cycle","Arial Narrow Bold",sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background: #f9f9fb;
+  margin-top: 90px; /* 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #f9f9fb;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
 
 a:hover, a:focus {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:focus {
-    outline: none;
+  outline: none;
 }
 
 div.main {
-    min-height: 550px;
+  min-height: 550px;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.placeholder {
+  color: #acb6c0;
 }
 
 /*
@@ -37,32 +41,32 @@ div.main {
 }
 
 .status-blue{
-    background:#2e8ec1;
+  background:#2e8ec1;
 }
 .status-yellow{
-    background:#f4c712;
+  background:#f4c712;
 }
 .status-green{
-    background:#00a553;
+  background:#00a553;
 }
 .status-orange{
-    background:#f88639;
+  background:#f88639;
 }
 .status-pink{
-    background:#f36;
+  background:#f36;
 }
 .status-red{
-    background:#f43434;
+  background:#f43434;
 }
 .status-aqua{
-    background:#4fcde0;
+  background:#4fcde0;
 }
 .status-purple{
-    background:#9854d8;
+  background:#9854d8;
 }
 .status-grey{
-    background:#aaa;
+  background:#aaa;
 }
 .status-brown{
-    background:#be8972;
+  background:#be8972;
 }

@@ -18,8 +18,8 @@
       { name: 'wechat', display: 'WeChat'},
     ];
     this.collapseStatus = {
-      personalDetails: false,
-      checklist: true
+      personalDetails: true,
+      checklist: true,
     };
 
     this.getCustomers = function() {

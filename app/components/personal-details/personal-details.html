@@ -9,25 +9,37 @@
                 <div editable editable-radio="customerDetailsCtrl.customer[property.name]"
                         radio-values="personalDetailsCtrl.genders"
                         on-save-callback="personalDetailsCtrl.updateProperty"
-                        on-save-callback-args="property"
-                        class="col-md-8">
-                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                        on-save-callback-args="{customer: customerDetailsCtrl.customer, property: property.name}">
+                    <div class="col-md-8">
+                        <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                    </div>
                 </div>
             </div>
             <div ng-switch-when="date">
                 <div editable editable-date="customerDetailsCtrl.customer[property.name]"
                     on-save-callback="personalDetailsCtrl.updateProperty"
-                    on-save-callback-args="property"
-                    class="col-md-8">
-                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                    on-save-callback-args="{customer: customerDetailsCtrl.customer, property: property.name}">
+                    <div class="col-md-8">
+                        <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                    </div>
                 </div>
             </div>
             <div ng-switch-default>
-                <div editable editable-text="customerDetailsCtrl.customer[property.name]"
+                <div ng-show="customerDetailsCtrl.customer[property.name]"
+                        editable editable-text="customerDetailsCtrl.customer[property.name]"
                         on-save-callback="personalDetailsCtrl.updateProperty"
-                        on-save-callback-args="property"
-                        class="col-md-8">
-                    <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                        on-save-callback-args="{customer: customerDetailsCtrl.customer, property: property.name}">
+                    <div class="col-md-8">
+                        <span>{{customerDetailsCtrl.customer[property.name]}}</span>
+                    </div>
+                </div>
+                <div ng-hide="customerDetailsCtrl.customer[property.name]"
+                        editable placeholder-text=""
+                        on-save-callback="personalDetailsCtrl.updateProperty"
+                        on-save-callback-args="{customer: customerDetailsCtrl.customer, property: property.name}">
+                    <div class="col-md-8">
+                        <span class="placeholder">Click to enter</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <div class="customer-panel-header">
                     <h3 class="customer-panel-title">
-                        {{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}} (<span class="customer-panel-subtitle">{{customerDetailsCtrl.customer.nickname}}</span>)
+                        {{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}} <span ng-if="customerDetailsCtrl.customer.nickname" class="customer-panel-subtitle">({{customerDetailsCtrl.customer.nickname}})</span>
                     </h3>
                 </div>
                 <accordion close-others="false">

@@ -1,4 +1,4 @@
-<accordion-group is-open="checklistListCtrl.collapseStatus.checklist" class="customer-panel-module">
+<accordion-group ng-if="customerDetailsCtrl.customer.checklists.length > 0" is-open="checklistListCtrl.collapseStatus.checklist" class="customer-panel-module">
     <accordion-heading>
         <i class="fa fa-check-square-o fa-lg"></i> Checklists <i class="pull-right fa" ng-class="{'fa-angle-down': checklistListCtrl.collapseStatus.checklist, 'fa-angle-right': !checklistListCtrl.collapseStatus.checklist}"></i>
     </accordion-heading>

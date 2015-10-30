@@ -48,7 +48,7 @@
                         </div>
                         <div class="overlay">
                             <div class="checker">
-                                <span ng-class="{'checked': customer.selected}" ng-click="listCtrl.onSingleCheckboxClicked(customer.id)"><input type="checkbox"></span>
+                                <span ng-class="{'checked': customer.selected}" ng-click="listCtrl.onSingleCheckboxClicked(customer._id)"><input type="checkbox"></span>
                             </div>
                             <!-- <div class="list-view-customer-info">
                                 <ul class="customer-info">
@@ -66,7 +66,7 @@
                                 <li class="delete"><a draggable="false">Delete</a></li>
                             </ul> -->
                             <div class="view-customer-wrap">
-                                <a ui-sref="customer-details({id:customer.id})" title="" draggable="false" href="">
+                                <a ui-sref="customer-details({id:customer._id})" title="" draggable="false" href="">
                                     <span class="view-customer-button" data-original-text="View Customer">View Customer</span>
                                 </a>
                             </div>
