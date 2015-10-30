@@ -1,10 +1,10 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app')
-        .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-            cfpLoadingBarProvider.includeSpinner = false;
-        }])
+  angular
+    .module('app')
+    .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
+    }])
 
 })();

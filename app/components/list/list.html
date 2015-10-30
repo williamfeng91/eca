@@ -41,7 +41,7 @@
         <div class="customers-grid list">
             <div class="customers-group list">
             <ul ui-sortable="listCtrl.sortableOptions" ng-model="listCtrl.customers">
-                <li ng-repeat="customer in listCtrl.customers | orderBy:'-list_pos':false" ng-class="{'selected': customer.selected}" class="customer other-customers-selected list -large">
+                <li ng-repeat="customer in listCtrl.customers" ng-class="{'selected': customer.selected}" class="customer other-customers-selected list -large">
                     <div class="customer-wrap">
                         <div class="image">
                             <div ng-class="{'status-{{customer.status.color}}':customer.status}" class="image-inner" alt=""></div>

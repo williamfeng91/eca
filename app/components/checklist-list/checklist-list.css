@@ -1,44 +1,44 @@
 .checklist .progress {
-    height: 10px;
-    margin-bottom: 1em;
+  height: 10px;
+  margin-bottom: 1em;
 }
 
 .checklist .progress-bar {
-    /*background-color: #18bc9c;*/
-    font-size: 12px;
-    line-height: 20px;
+  /*background-color: #18bc9c;*/
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .checklist .checklist-all-complete .progress-bar {
-    background-color: #18bc9c;
+  background-color: #18bc9c;
 }
 
 .checklist-item-checkbox {
-    line-height: 1.2em;
-    height: 1.2em;
-    width: 1.2em;
-    float: left;
-    cursor: pointer;
+  line-height: 1.2em;
+  height: 1.2em;
+  width: 1.2em;
+  float: left;
+  cursor: pointer;
 }
 
 .checklist-item-checkbox i {
-    /*color: #18bc9c;*/
+  /*color: #18bc9c;*/
 }
 
 .checklist-item-details-text {
-    /*padding-left: 1.5em;*/
+  /*padding-left: 1.5em;*/
 }
 
 .checklist-item-completed .checklist-item-details-text {
-    color: #8c8c8c;
-    font-style: italic;
-    text-decoration: line-through;
+  color: #8c8c8c;
+  font-style: italic;
+  text-decoration: line-through;
 }
 
 .checklist-new-item {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .checklist-add-item-text {
-    color: #18bc9c;
+  color: #18bc9c;
 }

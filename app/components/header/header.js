@@ -1,13 +1,13 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app.header')
-        .controller('HeaderController', HeaderController);
+  angular
+    .module('app.header')
+    .controller('HeaderController', HeaderController);
 
-    function HeaderController($state) {
-        var vm = this;
-        vm.isWorkflow = ($state == 'workflow');
-    }
+  function HeaderController($state) {
+    var vm = this;
+    vm.isWorkflow = ($state == 'workflow');
+  }
 
 })();

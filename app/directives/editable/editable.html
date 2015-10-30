@@ -1,6 +1,6 @@
 <ng-transclude ng-hide="editing"></ng-transclude>
 <div ng-show="editing" class="edit">
-    <textarea ng-if="editableText" focus-on="editing" ng-model="vm.newVal" elastic rows="2" placeholder="{{placeholderText}}"></textarea>
+    <textarea ng-if="editableText || placeholderText" focus-on="editing" ng-model="vm.newVal" elastic rows="2" placeholder="{{placeholderText}}"></textarea>
     <div ng-if="editableRadio" class="btn-group">
         <label ng-repeat="radioVal in radioValues" class="btn btn-primary" ng-model="vm.newVal" btn-radio="radioVal.name">{{radioVal.display}}</label>
     </div>

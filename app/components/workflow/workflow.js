@@ -1,12 +1,12 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app.workflow')
-        .controller('WorkflowController', WorkflowController);
+  angular
+    .module('app.workflow')
+    .controller('WorkflowController', WorkflowController);
 
-    function WorkflowController() {
-        var vm = this;
-    }
+  function WorkflowController() {
+    var vm = this;
+  }
 
 })();
