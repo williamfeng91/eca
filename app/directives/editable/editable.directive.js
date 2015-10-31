@@ -8,15 +8,14 @@
         restrict: 'A',
         transclude: true,
         scope: {
-          editableText: '=',
+          editable: '=',
+          editableType: '@',
           placeholderText: '@',
-          editableRadio: '=',
           radioValues: '=',
-          editableDate: '=',
           onSaveCallback: '&',
           onSaveCallbackArgs: '=',
           onDeleteCallback: '&',
-          deleteItem: '='
+          onDeleteCallbackArgs: '='
         },
         templateUrl: 'app/directives/editable/editable.html',
         link: function(scope, element, attrs) {
@@ -44,12 +43,8 @@
           }
 
           function startEdit() {
-            if (scope.editableText) {
-              scope.vm.newVal = scope.editableText;
-            } else if (scope.editableRadio) {
-              scope.vm.newVal = scope.editableRadio;
-            } else if (scope.editableDate) {
-              scope.vm.newVal = scope.editableDate;
+            if (scope.editable) {
+              scope.vm.newVal = scope.editable;
             } else {
               scope.vm.newVal = '';
             }
@@ -58,20 +53,23 @@
 
           function onSave() {
             // save when editable value has been modified and not empty
-            if (scope.vm.newVal) {
-              if ((scope.editableText != null && scope.vm.newVal != scope.editableText)
-                || (scope.placeholderText != null)
-                || (scope.editableRadio != null && scope.vm.newVal != scope.editableRadio)
-                || (scope.editableDate != null && scope.vm.newVal != scope.editableDate)) {
-                scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
-              }
+            // if (scope.vm.newVal != null) {
+            //   if ((scope.editableText != null && scope.vm.newVal != scope.editableText)
+            //     || (scope.placeholderText != null)
+            //     || (scope.editableRadio != null && scope.vm.newVal != scope.editableRadio)
+            //     || (scope.editableDate != null && scope.vm.newVal != scope.editableDate)) {
+            //     scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
+            //   }
+            // }
+            if (scope.vm.newVal != null && scope.vm.newVal != scope.editable) {
+              scope.onSaveCallback()(scope.vm.newVal, scope.onSaveCallbackArgs);
             }
             exitEdit();
           }
 
           function onDelete() {
             var callback = scope.onDeleteCallback();
-            callback(scope.deleteItem);
+            callback(scope.onDeleteCallbackArgs);
             exitEdit();
           }
 

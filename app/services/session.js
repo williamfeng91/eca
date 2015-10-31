@@ -9,14 +9,6 @@
   function session($cookieStore, logger) {
     this.customers = [];
     this.filteredCustomers = [];
-    this.customerProperties = [
-      { name: 'email', display: 'Email'},
-      { name: 'mobile', display: 'Mobile'},
-      { name: 'au_address', display: 'Australian Address'},
-      { name: 'cn_address', display: 'Foreign Address'},
-      { name: 'qq', display: 'QQ'},
-      { name: 'wechat', display: 'WeChat'},
-    ];
     this.collapseStatus = {
       personalDetails: true,
       checklist: true,
@@ -40,14 +32,6 @@
       for (var index in customers) {
           this.filteredCustomers.push(customers[index]);
       }
-    };
-
-    this.getCustomerProperties = function() {
-      return this.customerProperties;
-    }
-
-    this.setCustomerProperties = function(properties) {
-      this.customerProperties = properties;
     };
 
     this.getCollapseStatus = function() {

@@ -22,7 +22,7 @@
               .then(updatePropertySuccessful, updatePropertyFailed);
 
             function updatePropertySuccessful(result) {
-              args.customer[args.property] = newVal;
+              args.customer[args.property] = result[args.property];
             }
 
             function updatePropertyFailed(error) {
