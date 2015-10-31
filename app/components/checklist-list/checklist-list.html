@@ -4,9 +4,10 @@
     </accordion-heading>
     <div ng-repeat="checklist in customerDetailsCtrl.customer.checklists" class="checklist-list ui-sortable">
         <div class="checklist">
-            <div editable editable-text="checklist.name"
-                          on-save-callback="checklistListCtrl.updateChecklistName"
-                          class="customer-panel-module-title">
+            <div editable="checklist.name" editable-type="text"
+                on-save-callback="checklistListCtrl.updateChecklistName"
+                on-save-callback-args="{checklist: checklist}"
+                class="customer-panel-module-title">
                 <h4 class="customer-panel-module-title-text click-to-edit">{{checklist.name}}</h4>
                 <div class="customer-panel-module-title-options">
                     <div confirm target-item="checklist" on-confirm-callback="checklistListCtrl.deleteChecklist">
@@ -14,8 +15,8 @@
                     </div>
                 </div>
             </div>
-            <div class="checklist-progress">
-                <small><em>{{checklist.numChecked}} / {{checklist.items.length}}</em></small>
+            <div ng-show="checklist.items.length > 0" class="checklist-progress">
+                <small><em>{{checklist.numChecked || 0}} / {{checklist.items.length}}</em></small>
                 <progressbar ng-class="{'checklist-all-complete': checklist.numChecked == checklist.items.length}" max="checklist.items.length" value="checklist.numChecked"></progressbar>
             </div>
             <div ng-repeat="item in checklist.items" class="checklist-items-list ui-sortable">
@@ -24,18 +25,21 @@
                         <i class="fa fa-square-o fa-stack-1x"></i>
                         <i ng-show="item.checked" class="fa fa-check fa-stack-1x"></i>
                     </span>
-                    <div editable editable-text="item.text"
-                                  on-save-callback="checklistListCtrl.updateItemText"
-                                  delete-item="item"
-                                  on-delete-callback="checklistListCtrl.deleteItem"
-                                  class="checklist-item-details">
+                    <div editable="item.text" editable-type="text"
+                        on-save-callback="checklistListCtrl.updateItemText"
+                        on-save-callback-args="{checklist: checklist, item: item}"
+                        on-delete-callback="checklistListCtrl.deleteItem"
+                        on-delete-callback-args="{checklist: checklist, item: item}"
+                        class="checklist-item-details">
                         <p class="checklist-item-details-text">{{item.text}}</p>
                     </div>
                 </div>
             </div>
             <div class="checklist-new-item">
-                <div editable placeholder-text="Add an item"
-                              on-save-callback="checklistListCtrl.addItem">
+                <div editable editable-type="text"
+                    placeholder-text="Add an item"
+                    on-save-callback="checklistListCtrl.addItem"
+                    on-save-callback-args="{checklist: checklist}">
                     <a class="checklist-add-item-text">Add an item</a>
                 </div>
             </div>

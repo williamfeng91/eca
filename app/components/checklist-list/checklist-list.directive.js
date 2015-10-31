@@ -9,7 +9,7 @@
         scope: true,
         templateUrl: 'app/components/checklist-list/checklist-list.html',
         controllerAs: 'checklistListCtrl',
-        controller: function($scope, session, logger) {
+        controller: function($scope, checklistService, session, logger) {
           var vm = this;
           vm.collapseStatus = session.getCollapseStatus();
           vm.checklists = $scope.customerDetailsCtrl.customer.checklists;
@@ -28,24 +28,74 @@
             vm.checklists[index].numChecked = countCheckedItems(vm.checklists[index].items);
           }
 
-          function updateChecklistName(text) {
-            logger.log('Update checklist name', text);
+          function updateChecklistName(newVal, args) {
+            var patch = { name: newVal };
+            checklistService.partialUpdate(args.checklist._id, patch)
+              .then(updatePropertySuccessful, updatePropertyFailed);
+
+            function updatePropertySuccessful(result) {
+              args.checklist.name = result.name;
+            }
+
+            function updatePropertyFailed(error) {
+              logger.error(error);
+            }
           }
 
-          function deleteChecklist(item) {
-            logger.log('Delete checklist', item);
+          function deleteChecklist(checklist) {
+            checklistService.delete(checklist._id)
+              .then(deleteChecklistSuccessful, deleteChecklistFailed);
+
+            function deleteChecklistSuccessful(result) {
+              var index = vm.checklists.indexOf(checklist);
+              vm.checklists.splice(index, 1);
+            }
+
+            function deleteChecklistFailed(error) {
+              logger.log(error);
+            }
           }
 
-          function addItem(text) {
-            logger.log('Add checklist item', text);
+          function addItem(text, args) {
+            var item = { text: text };
+            checklistService.createItem(args.checklist._id, item)
+              .then(createItemSuccessful, createItemFailed);
+
+            function createItemSuccessful(result) {
+              args.checklist.items.push(result);
+            }
+
+            function createItemFailed(error) {
+              logger.error(error);
+            }
           }
 
-          function updateItemText(text) {
-            logger.log('Update checklist item text', text);
+          function updateItemText(newVal, args) {
+            var patch = { text: newVal };
+            checklistService.partialUpdateItem(args.checklist._id, args.item._id, patch)
+              .then(updatePropertySuccessful, updatePropertyFailed);
+
+            function updatePropertySuccessful(result) {
+              args.item.text = result.text;
+            }
+
+            function updatePropertyFailed(error) {
+              logger.error(error);
+            }
           }
 
-          function deleteItem(item) {
-            logger.log('Delete checklist item', item);
+          function deleteItem(args) {
+            checklistService.deleteItem(args.checklist._id, args.item._id)
+              .then(deleteItemSuccessful, deleteItemFailed);
+
+            function deleteItemSuccessful(result) {
+              var index = args.checklist.items.indexOf(args.item);
+              args.checklist.items.splice(index, 1);
+            }
+
+            function deleteItemFailed(error) {
+              logger.error(error);
+            }
           }
 
           function countCheckedItems(items) {
@@ -59,14 +109,23 @@
           }
 
           function toggleCheck(checklist, item) {
-            item.checked = !item.checked;
-            // update check count
-            if (item.checked) {
-              checklist.numChecked++;
-            } else {
-              checklist.numChecked--;
+            var patch = { checked: !item.checked };
+            checklistService.partialUpdateItem(checklist._id, item._id, patch)
+              .then(updatePropertySuccessful, updatePropertyFailed);
+
+            function updatePropertySuccessful(result) {
+              item.checked = result.checked;
+              // update check count
+              if (item.checked) {
+                checklist.numChecked++;
+              } else {
+                checklist.numChecked--;
+              }
             }
-            // call API to update
+
+            function updatePropertyFailed(error) {
+              logger.error(error);
+            }
           }
         }
       };
