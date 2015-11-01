@@ -10,7 +10,7 @@
                 <span class="icon-lg icon-archive customer-panel-archive-banner-icon"></span>
                 <p class="customer-panel-archive-banner-text">This card is archived.</p>
             </div> -->
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="customer-panel-header">
                     <h3 class="customer-panel-title">
                         {{customerDetailsCtrl.customer.given_name}} {{customerDetailsCtrl.customer.surname}} <span ng-if="customerDetailsCtrl.customer.nickname" class="customer-panel-subtitle">({{customerDetailsCtrl.customer.nickname}})</span>
@@ -35,19 +35,19 @@
                     </accordion-group>
                 </accordion>
             </div>
-            <div class="customer-panel-sidebar col-md-4 pull-right">
+            <div class="customer-panel-sidebar col-md-2 pull-right">
                 <div class="customer-panel-sidebar-module row">
                     <h4>Attach</h4>
-                    <div class="customer-panel-button customer-panel-button-top-left">
+                    <div class="customer-panel-button">
                         <a class="button-link js-edit-labels" href=""><span class="fa fa-sticky-note-o"></span> Sticky Note</a>
                     </div>
-                    <div class="customer-panel-button customer-panel-button-top-right">
+                    <div class="customer-panel-button">
                         <a ng-click="customerDetailsCtrl.addChecklist()" class="button-link js-add-checklist-menu" href=""><span class="fa fa-check-square-o"></span> Checklist</a>
                     </div>
-                    <div class="customer-panel-button customer-panel-button-bottom-right">
+                    <div class="customer-panel-button">
                         <a class="button-link js-add-due-date" href=""><span class="fa fa-clock-o"></span> Event</a>
                     </div>
-                    <div class="customer-panel-button customer-panel-button-bottom-right">
+                    <div class="customer-panel-button">
                         <a class="button-link js-attach" href=""><span class="fa fa-file-o"></span> Document</a>
                     </div>
                 </div>

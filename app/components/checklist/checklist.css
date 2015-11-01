@@ -1,3 +1,10 @@
+.checklist-list .checklist {
+  margin-top: 20px;
+}
+.checklist-list:first-child .checklist {
+  margin-top: 0;
+}
+
 .checklist .progress {
   height: 10px;
   margin-bottom: 1em;
@@ -37,8 +44,4 @@
 
 .checklist-new-item {
   margin-top: 10px;
-}
-
-.checklist-add-item-text {
-  color: #18bc9c;
 }

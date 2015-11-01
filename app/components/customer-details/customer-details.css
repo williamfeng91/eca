@@ -97,7 +97,7 @@
 }
 
 .customer-panel-button {
-  float: left;
+  /*float: left;
   top: 0;
   bottom: 0;
   width: 130px;
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #18bc9c;
+  border: 1px solid #18bc9c;*/
 }
 
 .customer-panel-button-top-left {

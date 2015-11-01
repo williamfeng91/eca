@@ -22,6 +22,9 @@
 
       function addChecklistSuccessful(result) {
         vm.customer.checklists.push(result);
+        vm.customer.checklists.sort(function(a, b) {
+          return a.pos < b.pos;
+        });
       };
 
       function addChecklistFailed(error) {

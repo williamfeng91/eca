@@ -1,0 +1,12 @@
+<div ng-class="{'checklist-item-completed': checklistItemCtrl.item.checked}" class="checklist-item">
+    <span ng-click="checklistItemCtrl.toggleCheck(checklistItemCtrl.item)" class="checklist-item-checkbox fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-1x"></i>
+        <i ng-show="checklistItemCtrl.item.checked" class="fa fa-check fa-stack-1x"></i>
+    </span>
+    <div editable="checklistItemCtrl.item.text" editable-type="text"
+        on-save-callback="checklistItemCtrl.updateItemText"
+        on-delete-callback="checklistItemCtrl.deleteItem"
+        class="checklist-item-details">
+        <p class="checklist-item-details-text">{{checklistItemCtrl.item.text}}</p>
+    </div>
+</div>

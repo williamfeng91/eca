@@ -1,0 +1,9 @@
+<accordion-group ng-if="checklistListCtrl.checklists.length > 0" is-open="checklistListCtrl.collapseStatus.checklist" class="customer-panel-module">
+    <accordion-heading>
+        <i class="fa fa-check-square-o fa-lg"></i> Checklists <i class="pull-right fa" ng-class="{'fa-angle-down': checklistListCtrl.collapseStatus.checklist, 'fa-angle-right': !checklistListCtrl.collapseStatus.checklist}"></i>
+    </accordion-heading>
+    <div ui-sortable="checklistListCtrl.sortableOptions" ng-model="checklistListCtrl.checklists">
+        <div eca-checklist ng-repeat="checklist in checklistListCtrl.checklists" class="checklist-list">
+        </div>
+    </div>
+</accordion-group>

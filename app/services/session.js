@@ -10,7 +10,7 @@
     this.customers = [];
     this.filteredCustomers = [];
     this.collapseStatus = {
-      personalDetails: true,
+      personalDetails: false,
       checklist: true,
     };
 

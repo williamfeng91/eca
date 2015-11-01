@@ -1,0 +1,27 @@
+<div class="checklist">
+    <div editable="checklistCtrl.checklist.name" editable-type="text"
+        on-save-callback="checklistCtrl.updateChecklistName"
+        class="customer-panel-module-title">
+        <h4 class="customer-panel-module-title-text click-to-edit">{{checklistCtrl.checklist.name}}</h4>
+        <div class="customer-panel-module-title-options">
+            <div confirm target-item="checklistCtrl.checklist" on-confirm-callback="checklistCtrl.deleteChecklist">
+                <a href>Delete checklist</a>
+            </div>
+        </div>
+    </div>
+    <div ng-show="checklistCtrl.checklist.items.length > 0" class="checklist-progress">
+        <small><em>{{checklistCtrl.checklist.numChecked || 0}} / {{checklistCtrl.checklist.items.length}}</em></small>
+        <progressbar ng-class="{'checklist-all-complete': checklistCtrl.checklist.numChecked == checklistCtrl.checklist.items.length}" max="checklistCtrl.checklist.items.length" value="checklistCtrl.checklist.numChecked"></progressbar>
+    </div>
+    <div ui-sortable="checklistCtrl.sortableOptions" ng-model="checklistCtrl.checklist.items">
+        <div eca-checklist-item ng-repeat="item in checklistCtrl.checklist.items" class="checklist-items-list">
+        </div>
+    </div>
+    <div class="checklist-new-item">
+        <div editable editable-type="text"
+            placeholder-text="Add an item"
+            on-save-callback="checklistCtrl.addItem">
+            <a class="checklist-add-item-text">Add an item</a>
+        </div>
+    </div>
+</div>
